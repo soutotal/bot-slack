@@ -17,12 +17,21 @@ controller.setupWebserver(process.env.PORT || 3001, function(err, webserver) {
     });
 });
 
-controller.hears(
-  ["ultimo encontro","último encontro"],
+function reply (patterns, eventos, text) {
+  controller.hears(
+    patterns,
+    eventos,
+    function(bot,message) {
+      bot.reply(message, text);
+    }
+  );
+}
+
+reply(
+  ["ultimo encontro","último encontro"], 
   ["direct_message","direct_mention","mention","ambient"],
-  function(bot,message) {
-    bot.reply(message,'SHOW DE BOLA. Quer saber? Venha conferir :P \n No último encontro fizemos um brainstorm das próximas atividades que serão: HACKEAR A TOTAL! :smiling_imp:');
-  });
+  'SHOW DE BOLA. Quer saber? Venha conferir :P \n No último encontro fizemos um brainstorm das próximas atividades que serão: HACKEAR A TOTAL! :smiling_imp:'
+);
 
 controller.hears(
     ["proximo encontro","próximo encontro"],
