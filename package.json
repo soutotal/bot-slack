@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "botkit": "^0.2.0"
+    "botkit": "^0.2.0",
+    "google-auth-library": "^0.9.8",
+    "google-calendar": "^1.3.2",
+    "googleapis": "^7.1.0"
   }
 }
