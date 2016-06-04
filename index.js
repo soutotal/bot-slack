@@ -27,23 +27,28 @@ function reply (controller, patterns, eventos, text) {
   );
 }
 
-reply(
-  controller,
-  ["ultimo encontro","último encontro"], 
-  ["direct_message","direct_mention","mention","ambient"],
-  'SHOW DE BOLA. Quer saber? Venha conferir :P \n No último encontro fizemos um brainstorm das próximas atividades que serão: HACKEAR A TOTAL! :smiling_imp:'
-);
+var commands = [
+  {
+    patterns: ["ultimo encontro","último encontro"], 
+    events: ["direct_message","direct_mention","mention","ambient"],
+    text: 'SHOW DE BOLA. Quer saber? Venha conferir :P \n No último encontro fizemos um brainstorm das próximas atividades que serão: HACKEAR A TOTAL! :smiling_imp:'
+  }, {
+    patterns: ["proximo encontro","próximo encontro"],
+    events: ["direct_message","direct_mention","mention","ambient"],
+    text: 'O próximo encontro será no dia 04/06 às 14:00 - estamos até barganhando um coffe break...'
+  }, {
+    patterns: ["evento"],
+    events: ["direct_message","direct_mention","mention","ambient"],
+    text: 'Dia 31/05 as 18:00 teremos Aniversariantes do mês!! Vai ter :cake: :cake: :cake: :cake: :cake: :cake: :cake: \n Dia 03/06 as 13h teremos um bate-papo na sala do Oikos sobre a "Importância dos Testes de Software" \n Dia 04/06 as 14:00 acontecerá também o próximo encontro dos #loucosporconhecimento \n'
+  }
+];
 
-reply(
-  controller,
-  ["proximo encontro","próximo encontro"],
-  ["direct_message","direct_mention","mention","ambient"],
-  'O próximo encontro será no dia 04/06 às 14:00 - estamos até barganhando um coffe break...'
-);
+for (var i = 0; i < commands.length; i++) {
+  reply(
+    controller,
+    commands[i]['patterns'],
+    commands[i]['events'],
+    commands[i]['text']
+  );  
+}
 
-reply(
-  controller,
-  ["evento"],
-  ["direct_message","direct_mention","mention","ambient"],
-  'Dia 31/05 as 18:00 teremos Aniversariantes do mês!! Vai ter :cake: :cake: :cake: :cake: :cake: :cake: :cake: \n Dia 03/06 as 13h teremos um bate-papo na sala do Oikos sobre a "Importância dos Testes de Software" \n Dia 04/06 as 14:00 acontecerá também o próximo encontro dos #loucosporconhecimento \n'
-);
