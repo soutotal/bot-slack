@@ -33,12 +33,11 @@ reply(
   'SHOW DE BOLA. Quer saber? Venha conferir :P \n No último encontro fizemos um brainstorm das próximas atividades que serão: HACKEAR A TOTAL! :smiling_imp:'
 );
 
-controller.hears(
-    ["proximo encontro","próximo encontro"],
-    ["direct_message","direct_mention","mention","ambient"],
-    function(bot,message) {
-      bot.reply(message,'O próximo encontro será no dia 04/06 às 14:00 - estamos até barganhando um coffe break...');
-  });
+reply(
+  ["proximo encontro","próximo encontro"],
+  ["direct_message","direct_mention","mention","ambient"],
+  'O próximo encontro será no dia 04/06 às 14:00 - estamos até barganhando um coffe break...'
+);
 
 controller.hears(
   ["Evento"],
